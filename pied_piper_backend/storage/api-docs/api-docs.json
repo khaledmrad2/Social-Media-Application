@@ -1,0 +1,1481 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Pied Piper",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/check/{type}": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "check if code is true for reset / send",
+                "description": "Uchecking from code",
+                "operationId": "check",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "reset or send",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "code"
+                                ],
+                                "properties": {
+                                    "code": {
+                                        "type": "integer"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "operation done",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login/{role}": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "User login",
+                "description": "User login here",
+                "operationId": "2",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "user or admin",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "text"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "loggedin successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "logout user / admin",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "logged out",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/signup/{from}": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "User signup",
+                "description": "User signup here",
+                "operationId": "Register",
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "path",
+                        "description": "web or flutter",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "text"
+                                    },
+                                    "email": {
+                                        "type": "email"
+                                    },
+                                    "password": {
+                                        "type": "password"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Register Successfully / user added to database",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/code/{type}": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "send code to user",
+                "description": "sending code code",
+                "operationId": "sendCode",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "reset or send",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "email"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "sended successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/verify/{user}'": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "verify user web",
+                "description": "verify user",
+                "operationId": "verify",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "signature",
+                                    "expires"
+                                ],
+                                "properties": {
+                                    "signature": {
+                                        "type": "text"
+                                    },
+                                    "expires": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "verified successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/resend/{from}'": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "resend code / link to verify",
+                "description": "verify user",
+                "operationId": "resend",
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "path",
+                        "description": "web / flutter",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "email"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "email"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "resended successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/friend/add/{id}": {
+            "post": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "send request to a person",
+                "operationId": "add friend",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the person id you want to add as a friend",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "request sended successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/friend/refuse/{id}": {
+            "post": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "refuse friend request",
+                "operationId": "refuse friend request",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the person id you want to refuse friend request",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "request refuesd successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/friend/cancel/{id}": {
+            "post": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "cancel friend request",
+                "operationId": "cancel sended friend request",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the person id you want to cancel friend request",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "request canceled successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/friend/accept/{id}": {
+            "post": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "accept friend request",
+                "operationId": "accept friend request",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the person id you want to accept his friend request",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "request accepted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/friend/remove/{id}": {
+            "post": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "remove friend",
+                "operationId": "remove friend",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the friend id you want to remove",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "friend removed successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/friend/suggested": {
+            "get": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "get all suggested friends",
+                "operationId": "suggested",
+                "responses": {
+                    "200": {
+                        "description": "all suggested friends"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/friend/getMy": {
+            "get": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "get my friends",
+                "operationId": "getMyFriends",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the person id you want to get mutual friends with",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "all mutual friends"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/friend/getMutual/{id}": {
+            "get": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "get mutule friends",
+                "operationId": "getMutualFriends",
+                "responses": {
+                    "200": {
+                        "description": "my friends"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/friend/getSentRequests": {
+            "get": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "get my sent requests",
+                "operationId": "getSentRequests",
+                "responses": {
+                    "200": {
+                        "description": "all requests"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/friend/receivedRequests": {
+            "get": {
+                "tags": [
+                    "Friends"
+                ],
+                "summary": "get received requests",
+                "operationId": "receivedRequests",
+                "responses": {
+                    "200": {
+                        "description": "all received requests"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/comment/create/{post_id}": {
+            "post": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "create comment",
+                "description": "User create comment here",
+                "operationId": "create_comment",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "path",
+                        "description": "the id of post you want comment on",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "text": {
+                                        "type": "text"
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "post created successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/comment/delete/{comment_id}": {
+            "delete": {
+                "tags": [
+                    "Comments"
+                ],
+                "summary": "delete comment",
+                "operationId": "delet_comment",
+                "parameters": [
+                    {
+                        "name": "comment_id",
+                        "in": "path",
+                        "description": "id of  comment you want to delete",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "comment deleted"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/create/{type}": {
+            "post": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "create post",
+                "description": "User create post here",
+                "operationId": "create post",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "normal or job or profilePicture or coverPicture",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "text": {
+                                        "type": "text"
+                                    },
+                                    "images[]": {
+                                        "type": "file"
+                                    },
+                                    "video": {
+                                        "type": "file"
+                                    },
+                                    "voice_record": {
+                                        "type": "file"
+                                    },
+                                    "background": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "post created successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/update/{post_id}": {
+            "post": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "update post",
+                "description": "User update post here",
+                "operationId": "update post",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "path",
+                        "description": "id of the post",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "text": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "post Updated successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/delete/{post_id}": {
+            "delete": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "delete post",
+                "operationId": "deletePost",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "path",
+                        "description": "id of post you want to delete",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "post deleted"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/friendsPosts": {
+            "get": {
+                "tags": [
+                    "Posts"
+                ],
+                "summary": "get all posts",
+                "operationId": "friendsPosts",
+                "responses": {
+                    "200": {
+                        "description": "all posts"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/reaction/toggle/{type}/{id}": {
+            "post": {
+                "tags": [
+                    "reactions"
+                ],
+                "summary": "create/delete/updeate comment",
+                "description": "User create/delete/updeate reactions here",
+                "operationId": "create/delete/updeate_reaction",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "the id of post/comment you want create reaction on",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "type": {
+                                        "type": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "reaction created successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/savePost/{Post_id}": {
+            "post": {
+                "tags": [
+                    "saved posts"
+                ],
+                "summary": "create saved post",
+                "description": "User create saved post here",
+                "operationId": "create_saved_post",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "path",
+                        "description": "post_id of the post that you want to save",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "saved post created successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/mySavedPosts": {
+            "get": {
+                "tags": [
+                    "saved posts"
+                ],
+                "summary": "get all Saved posts",
+                "operationId": "SavedPosts",
+                "responses": {
+                    "200": {
+                        "description": "all Saved posts"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/DeleteSavedPost/{SavedPost_id}": {
+            "delete": {
+                "tags": [
+                    "saved posts"
+                ],
+                "summary": "delete Savedpost",
+                "operationId": "delete_SavedPost",
+                "parameters": [
+                    {
+                        "name": "SavedPost_id",
+                        "in": "path",
+                        "description": "id of Savedpost you want to delete",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "saved post deleted"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/sharePost/{post_id}": {
+            "post": {
+                "tags": [
+                    "shared posts"
+                ],
+                "summary": "shere post",
+                "description": "User shere saved  here",
+                "operationId": "shere_post",
+                "parameters": [
+                    {
+                        "name": "post_id",
+                        "in": "path",
+                        "description": "post_id of the post that you want to shere",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "post sherded successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/post/deleteSharedPost/{SharedPost_id}": {
+            "delete": {
+                "tags": [
+                    "shared posts"
+                ],
+                "summary": "delete sharedpost",
+                "operationId": "delete_shaerdPost",
+                "parameters": [
+                    {
+                        "name": "SharedPost_id",
+                        "in": "path",
+                        "description": "id of SharedPost you want to delete",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SharedPost deleted"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/story/create": {
+            "post": {
+                "tags": [
+                    "Stories"
+                ],
+                "summary": "create story",
+                "description": "User create story here",
+                "operationId": "create story",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "text": {
+                                        "type": "text"
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "story created successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/story/delete/{story_id}": {
+            "delete": {
+                "tags": [
+                    "Stories"
+                ],
+                "summary": "delete story",
+                "operationId": "delete_story",
+                "parameters": [
+                    {
+                        "name": "story_id",
+                        "in": "path",
+                        "description": "id of story you want to delete",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "story deleted"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/story/getAllStories": {
+            "get": {
+                "tags": [
+                    "Stories"
+                ],
+                "summary": "get all stories",
+                "operationId": "friends_Stories",
+                "responses": {
+                    "200": {
+                        "description": "all stories"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "get users by search",
+                "operationId": "search for users",
+                "parameters": [
+                    {
+                        "name": "searrch",
+                        "in": "query",
+                        "description": "enter name of user you want to search for",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "all found users"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/search/add/{id}": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "add to history",
+                "operationId": "addToHistory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the user searched id to add",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "added to search history",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/search/delete/{id}": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "delete from search history",
+                "operationId": "deleteFromHistory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "enter the user searched id to remove from search history",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "removed from search history",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/search/all": {
+            "get": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "get users by search",
+                "operationId": "getSearchHistory",
+                "responses": {
+                    "200": {
+                        "description": "all search history"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/{id}": {
+            "get": {
+                "tags": [
+                    "user_profile"
+                ],
+                "summary": "get user profile",
+                "operationId": "profile",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of your profile or of other user profile",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "user profile"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/updatePicture": {
+            "post": {
+                "tags": [
+                    "user_profile"
+                ],
+                "summary": "update picture",
+                "description": "User update his picutre here",
+                "operationId": "update_picture",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "picture": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "picture updated successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/updateCover": {
+            "post": {
+                "tags": [
+                    "user_profile"
+                ],
+                "summary": "update cover",
+                "description": "User update his cover here",
+                "operationId": "update_cover",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [],
+                                "properties": {
+                                    "cover": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "cover updated successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/userPictures": {
+            "get": {
+                "tags": [
+                    "user_profile"
+                ],
+                "summary": "get user pictures",
+                "operationId": "profile_pictures",
+                "responses": {
+                    "200": {
+                        "description": "user pictures"
+                    },
+                    "401": {
+                        "description": "unauthorized."
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        },
+        "/api/updateJobTitles": {
+            "post": {
+                "tags": [
+                    "user_profile"
+                ],
+                "summary": "update JobTitles",
+                "description": "User update his JobTitles here",
+                "operationId": "update_JobTitles",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "available_to_hire",
+                                    "job_title",
+                                    "location"
+                                ],
+                                "properties": {
+                                    "available_to_hire": {},
+                                    "job_title": {
+                                        "type": "string"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "JobTitles updated successfully!",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "JWT": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
