@@ -1,64 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Social Media Application
 
-## About Laravel
+A new Mobile project . Pied Piper is a social media application
+ This application is a social networking program that combined 3 ideas from 3 applications on social media platforms (intsgram-linkedin-facebook).
+  - The name of the application (pied piper) means “the oboe player”, and the name is associated with the basic idea on which the application was built, which is: the ability to publish audio publications for users within the application, the application contains many features such as:
+ The possibility of registering by email and then verifying the email via a verification link that arrives if the registration was made from the application’s website, or a verification code if the registration was made from the Android application.
+ The ability to resend the verification email or change the password if you forget it.
+ - The feature of publishing a publication, which contains many services, including:
+ 1- An audio-recorded publication with or without text.
+ 2- Published with text with a background text or without.
+ 3- A post with a selected video, screen recording, or front camera recording, with or without text.
+ 4- Published with one or several images, with or without text.
+ 5- A job search publication or a job opportunity publication is done after entering the necessary information.
+ - The feature of commenting on posts with text, a picture, or a dragon.
+ Interact with posts and comments.
+ The feature of deleting or modifying the post or comment.
+ The feature to share/unshare a post and the feature to save/unsave a post.
+ - The feature of adding friends and searching for them with a search history.
+ The feature of changing the user's image, background and personal information.
+ The feature of adding a story will be automatically deleted after 24 hours.
+ The notifications feature, as it has a window containing all the notifications in the application, in addition to the arrival of notifications in real time.
+ - The advantage of creating private or public groups and inviting friends to it or requesting to join groups.
+ - Conversation feature with friends so that we can open a chat with any friend.
+ In addition to the features of suggested friends, personal photo archive, post filtering for regular posts, work posts, group posts, mix posts (all posts are normal, work and group posts), the ability to create a report on a post / comment / group / user, and many more features.. 💚
+ A trial version has been exported to users and uploaded to Google Drive
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+I Make The FrontEnd With Flutter 
+Using Bloc State Managment , Models witch is built on OOP Concept , Http and Dio Libraries 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+and The Backend Was built with Laravel FramWork
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🔗 Links
 
-## Learning Laravel
+- [Test Apk Version on Google Drive](https://drive.google.com/drive/folders/1w0pnmchDTF6lCfqOHZbGdvjMUFhH36Qk?usp=sharing)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [Post on LinkedIn](https://drive.google.com/file/d/11Og7qkM-IKDoNNwlnMs1p_kQ93RlWn_Y/view?usp=sharing)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Author🚀
 
-## Laravel Sponsors
+- [Khaled Morad](https://www.linkedin.com/in/khaledmorad)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+## 🛠 Skills
+Flutter , Laravel , OOP  ,MYSQL DB , RESTful-APIS.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🔗 About Me 
+If you have any questions or suggestions, feel free to reach out to us at :
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+[![GitHub](https://img.shields.io/badge/GitHub-333?style=for-the-badge&logo=github&logoColor=white)](https://github.com/khaledmrad2)
 
-## Security Vulnerabilities
+[![GitLab](https://img.shields.io/badge/-Gitlab-orange?logo=gitlab&logoColor=white&style=for-the-badge)](https://gitlab.com/khaledmorad)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/khaledmorad)
 
-## License
+[![gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:khaled.morad.br@gmail.com)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Good Luck and Thanks For Your Time
+
